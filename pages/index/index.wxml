@@ -1,0 +1,21 @@
+<view class="container">
+  
+    <!--banner滑动-->
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{top_stories}}">
+            <swiper-item>
+                <image id="{{item.id}}" bindtap="dailyDetail" src="{{item.image}}" class="slide-image" width="355" height="150"/>
+                <view>{{item.title}}</view>
+            </swiper-item>
+        </block>
+    </swiper>
+
+    <!--最新知乎日报列表-->
+    <view class="main">
+        <block wx:for="{{stories}}">
+                 <view> {{item.title}}</view>
+                 <image id="{{item.id}}" bindtap="dailyDetail" src="{{item.images[0]}}"></image>
+        </block>
+    </view>
+
+</view>

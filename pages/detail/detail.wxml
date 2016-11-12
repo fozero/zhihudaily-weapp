@@ -1,0 +1,16 @@
+
+ <!--引入富文本解析自定义组件-->
+<import src="../../wxParse/wxParse.wxml"/>
+
+
+<view class="container">
+   
+    
+    <view class="wxParse">
+         <view>{{title}}</view>
+        <image src="{{imgsrc}}"></image>
+
+        <!--知乎内容html解析-->
+        <template is="wxParse" data="{{wxParseData}}"/>
+    </view>
+</view>
