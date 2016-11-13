@@ -42,7 +42,7 @@ Page({
                 that.setData({
                      title:res.data.title,
                      imgsrc:res.data.image,
-                     wxParseData:WxParse('md',res.data.body)//使用WxParse组件解析html  markdow解析将html替换成md
+                     wxParseData:WxParse('html',res.data.body)//使用WxParse组件解析html  markdow解析将html替换成md
                 })
                 
             },
