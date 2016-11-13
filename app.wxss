@@ -1,0 +1,16 @@
+
+/*全局样式*/
+
+page{
+    background-color:#f6f6f6;
+}
+
+.fl_left{
+    float:left;
+}
+.fl_right{
+    float:right;
+}
+.clearfix{
+    clear: both;
+}

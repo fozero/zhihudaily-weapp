@@ -5,12 +5,13 @@
 
 <view class="container">
    
-    
-    <view class="wxParse">
-         <view>{{title}}</view>
+    <view style="height:240px;position:relative;">
         <image src="{{imgsrc}}"></image>
+        <view style="position:absolute;top:158px;color:#fff;font-size:20px;padding:10px;">{{title}}</view>
+    </view>
 
-        <!--知乎内容html解析-->
+     <!--知乎内容html解析-->
+    <view class="wxParse">
         <template is="wxParse" data="{{wxParseData}}"/>
     </view>
 </view>

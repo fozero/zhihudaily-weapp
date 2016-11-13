@@ -1,21 +1,32 @@
+
+<!--index.wxml-->
+
+
 <view class="container">
-  
-    <!--banner滑动-->
+
+
+    <!--banner轮播-->
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-        <block wx:for="{{top_stories}}">
-            <swiper-item>
-                <image id="{{item.id}}" bindtap="dailyDetail" src="{{item.image}}" class="slide-image" width="355" height="150"/>
-                <view>{{item.title}}</view>
+        <block wx:key="" wx:for="{{top_stories}}">
+            <swiper-item id="{{item.id}}" bindtap="dailyDetail">
+                <image src="{{item.image}}" class="slide-image" width="355" height="150"/>
+                <view class="slide_title">{{item.title}}</view>
             </swiper-item>
         </block>
     </swiper>
 
     <!--最新知乎日报列表-->
-    <view class="main">
-        <block wx:for="{{stories}}">
-                 <view> {{item.title}}</view>
-                 <image id="{{item.id}}" bindtap="dailyDetail" src="{{item.images[0]}}"></image>
+    <view class="news_list">
+        <block wx:key="" wx:for="{{stories}}">
+                <view class="news_list_item" id="{{item.id}}" bindtap="dailyDetail">
+                    <view class="fl_left" style="width:200px">{{item.title}}</view>
+                    <view class="fl_right">
+                        <image style="width:78px;height:78px;" src="{{item.images[0]}}"></image>
+                    </view>
+                    <view class="clearfix"></view>
+                </view>
         </block>
     </view>
+
 
 </view>

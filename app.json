@@ -4,8 +4,8 @@
       "pages/detail/detail"
   ],
   "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#BE304D",
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#4abdcc",
     "navigationBarTitleText": "知乎日报",
     "navigationBarTextStyle":"white"
   },
