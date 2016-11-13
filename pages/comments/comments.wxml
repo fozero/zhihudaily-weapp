@@ -1,0 +1,24 @@
+<!--comments.wxml-->
+
+
+<view class="container">
+    <!--长评-->
+    <view style="border-bottom:1px solid #dedede;padding:5px;background-color:#fff;font-size:18px;">
+        {{longCommentCounts}}条长评轮
+    </view>
+    <view>
+        <block wx:for="{{longComments}}">
+            <view style="border-bottom:1px solid #dedede;padding:10px;background-color:#fff;">{{item.content}}</view>
+        </block>
+    </view>
+    <!--短评-->
+    <view>
+        <view style="border-bottom:1px solid #dedede;padding:5px;background-color:#fff;font-size:18px;">
+            {{shortCommentCounts}}条短评轮
+        </view>
+         <block wx:for="{{shortComments}}">
+            <view style="border-bottom:1px solid #dedede;padding:10px;background-color:#fff;">{{item.content}}</view>
+          </block>
+    </view>
+
+</view>

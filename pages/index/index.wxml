@@ -19,7 +19,9 @@
     <view class="news_list">
         <block wx:key="" wx:for="{{stories}}">
                 <view class="news_list_item" id="{{item.id}}" bindtap="dailyDetail">
-                    <view class="fl_left" style="width:200px">{{item.title}}</view>
+                    <view class="fl_left" style="width:200px">
+                    {{item.title}}
+                    </view>
                     <view class="fl_right">
                         <image style="width:78px;height:78px;" src="{{item.images[0]}}"></image>
                     </view>

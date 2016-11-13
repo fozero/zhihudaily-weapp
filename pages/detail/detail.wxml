@@ -14,4 +14,18 @@
     <view class="wxParse">
         <template is="wxParse" data="{{wxParseData}}"/>
     </view>
+
+    <!--额外信息-->
+    <view style="background-color:#4abdcc;position:fixed;bottom:0;width:100%;padding:5px;height:42px;">
+        <view id="{{newsid}}" class="fl_left" bindtap="showComments">
+            <image src="../../images/ico_like.png" style="width:22px;height:22px;"></image>
+            {{comments}}
+        </view>
+        <view id="{{newsid}}" class="fl_left" style="" bindtap="doLike">
+            <image src="../../images/ico_like_actived.png" style="width:22px;height:22px;"></image>
+            {{popularity}}
+        </view>
+        <view class="clearfix"></view>
+    </view>
+
 </view>

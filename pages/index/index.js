@@ -4,6 +4,7 @@ var app = getApp();
 //require引入api.js文件
 var api = require("../../lib/api.js");
 var dialog = require("../../lib/dialog.js");
+var util = require("../../lib/util.js");
 
 // 页面注册
 Page({
@@ -12,6 +13,7 @@ Page({
     data: {
         stories:"",
         top_stories:"",
+        datetime:"",
         indicatorDots:true,
         autoplay:true,
         interval:5000,
@@ -46,10 +48,17 @@ Page({
                     'Content-Type': 'application/json'
                 },
                 success: function(res) {
-                    console.log(res.data)
+                    console.log(res.data);
+
+                    //日期格式化 '19930701' -> 1993-07-01  
+                    var dateString = res.data.date;
+                    var pattern = /(\d{4})(\d{2})(\d{2})/;
+                    var formatedDate = dateString.replace(pattern, '$1-$2-$3');
+
                     that.setData({
                         stories:res.data.stories,
-                        top_stories:res.data.top_stories
+                        top_stories:res.data.top_stories,
+                        datetime:formatedDate
                     })
                 },
                 fail:function(){
