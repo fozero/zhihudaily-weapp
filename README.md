@@ -10,3 +10,8 @@ https://mp.weixin.qq.com/debug/wxadoc/dev/?t=20161107
 3、服务器配置 ，添加合法域名，每个月只可修改3次 ，可添加多个域名
 4、下载开发工具后创建项目，输入申请的AppID，填写项目名称，导入该工程
 5、项目预览体验
+
+
+## 效果图
+![](https://raw.githubusercontent.com/fozero/zhihudaily-weapp/master/images/效果图1.jpg)
+![](https://raw.githubusercontent.com/fozero/zhihudaily-weapp/master/images/效果图2.jpg)
