@@ -1,0 +1,8 @@
+
+
+<!--section.wxml-->
+
+<view class="container">
+
+    <view>section</view>
+</view>
