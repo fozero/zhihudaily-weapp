@@ -1,0 +1,5 @@
+
+/*sectionsection.wxss*/
+
+/** news.wxss样式文件引入 **/
+@import "../../components/news/news.wxss";

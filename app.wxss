@@ -14,3 +14,11 @@ page{
 .clearfix{
     clear: both;
 }
+
+
+/*用户头像*/
+.userinfo_avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}

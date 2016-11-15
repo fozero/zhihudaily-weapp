@@ -1,6 +1,7 @@
 
 <!--index.wxml-->
-
+<!--引用模板news.wxml文件-->
+<import src="../../components/news/news.wxml"/>
 
 <view class="container">
 
@@ -17,8 +18,9 @@
 
     <!--最新知乎日报列表-->
     <view class="news_list">
-        <block wx:key="" wx:for="{{stories}}">
-                <view class="news_list_item" id="{{item.id}}" bindtap="dailyDetail">
+        <block wx:key="" wx:for="{{stories}}" wx:for-item="item">
+                <!--<template is="news_item" data="{{id:item.id,title:item.title,images:item.images[0]}}"/>-->
+                <view class="news_item" id="{{item.id}}" bindtap="dailyDetail">
                     <view class="fl_left" style="width:200px">
                     {{item.title}}
                     </view>

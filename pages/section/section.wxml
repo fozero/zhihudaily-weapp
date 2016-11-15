@@ -1,8 +1,36 @@
 
 
 <!--section.wxml-->
+<!--引用模板news.wxml文件-->
+<import src="../../components/news/news.wxml"/>
 
 <view class="container">
 
-    <view>section</view>
+    <view>
+        <!--<view wx:for="{{themes}}" wx:for-item="item">
+                <view>{{item.name}}</view>
+            </view>-->
+
+        <!--主题图片-->
+        <view>
+           <image style="height:180px;" src="{{themeimage}}"/>
+            <view style="position:absolute;top:120px;color:#fff;font-size:18px;padding:5px;">{{description}}</view>
+        </view>
+        <!--编辑-->
+        <!--<view>
+            <block wx:for="{{editors}}" wx:for-item="item">
+                <image src="http://pic4.zhimg.com/068311926_m.jpg"></image> 
+                <view>{{item.bio}}</view>
+                <image src="{{item.avatar}}"></image>
+            </block>
+        </view>-->
+        <!--主题内容列表-->
+        <view>
+            <block wx:for="{{stories}}" wx:for-item="item">
+                <template is="news_item" data="{{id:item.id,title:item.title,images:item.images[0]}}"/>
+            </block>
+        </view>
+    
+    
+    </view>
 </view>
