@@ -20,6 +20,7 @@ Page({
         this.getThemes();
     },
 
+
     //主题日报列表
     getThemes:function(){
         var that = this;
@@ -37,8 +38,16 @@ Page({
             }
          })
     },
+
+    //跳转到获取新闻主题内容方法
+    toGetThemesContent:function(e){
+        //新闻主题idid
+        var themeid = e.currentTarget.id;
+        this.getThemesContent(themeid);
+    },
+
     //新闻主题内容
-    getThemesContent:function(themeid){
+    getThemesContent:function(themeid){console.log("********************"+themeid);
         console.log(api.news_themes_content_url+themeid);
         var that = this;
          wx.request({
@@ -60,7 +69,13 @@ Page({
 
                 //更新主题标题栏
                 wx.setNavigationBarTitle({
-                    title: res.data.name
+                    title: res.data.name,
+                    success:function(){
+                        console.log("success->"+res.data.name);
+                    },
+                    fail:function(){
+                         console.log("fail");
+                    }
                 })
             }
          })

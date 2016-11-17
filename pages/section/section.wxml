@@ -6,10 +6,12 @@
 
 <view class="container">
 
-    <view>
-        <!--<view wx:for="{{themes}}" wx:for-item="item">
-                <view>{{item.name}}</view>
-            </view>-->
+        <!--专栏tab选项卡-->
+        <scroll-view scroll-x="true" class="section_tabs">
+            <block wx:for="{{themes}}" wx:for-item="item">
+                <view id="{{item.id}}" bindtap="toGetThemesContent" class="section_tabs_item">{{item.name}}</view>
+            </block>
+        </scroll-view>
 
         <!--主题图片-->
         <view>
@@ -17,20 +19,17 @@
             <view style="position:absolute;top:120px;color:#fff;font-size:18px;padding:5px;">{{description}}</view>
         </view>
         <!--编辑-->
-        <!--<view>
+        <view style="padding:2px;background-color:#fff">
+            <view style="display:inline-block;height:32px;line-height:32px;">编辑</view>
             <block wx:for="{{editors}}" wx:for-item="item">
-                <image src="http://pic4.zhimg.com/068311926_m.jpg"></image> 
-                <view>{{item.bio}}</view>
-                <image src="{{item.avatar}}"></image>
+                <image class="userinfo_avatar" style="margin-left:5px;vertical-align:middle;" src="{{item.avatar}}"></image>
             </block>
-        </view>-->
+        </view>
         <!--主题内容列表-->
         <view>
             <block wx:for="{{stories}}" wx:for-item="item">
                 <template is="news_item" data="{{id:item.id,title:item.title,images:item.images[0]}}"/>
             </block>
         </view>
-    
-    
-    </view>
+
 </view>
