@@ -267,7 +267,7 @@ wx.makePhoneCall({
 })
 ``` 
 
--获取当前的地理位置、速度
+- 获取当前的地理位置、速度
 ``` 
 wx.getLocation({
   type: 'wgs84',
