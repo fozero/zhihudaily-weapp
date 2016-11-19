@@ -16,10 +16,10 @@ https://mp.weixin.qq.com/debug/wxadoc/dev/?t=20161107
 # 必须掌握的几个知识点
 
 
-## 
+## 配置
 
 - app.json文件小程序设置全局配置 ，包括页面路径、窗口、选项卡，以及网络超时等
-
+`
 {
   "pages": [
     "pages/index/index",
@@ -43,7 +43,7 @@ https://mp.weixin.qq.com/debug/wxadoc/dev/?t=20161107
   },
   "debug": true
 }
-
+`
 - 通过appapp.js文件中App()来注册一个小程序  提供了生命周期方法
 
 App({
