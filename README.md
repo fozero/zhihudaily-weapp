@@ -21,8 +21,8 @@ https://mp.weixin.qq.com/debug/wxadoc/dev/?t=20161107
 
 
 ## 目录
-[小程序配置]
-[小程序常用API接口]
+- [小程序配置](https://github.com/fozero/zhihudaily-weapp)
+- [小程序常用API接口](https://github.com/fozero/zhihudaily-weapp)
 
 
 ## 小程序配置
