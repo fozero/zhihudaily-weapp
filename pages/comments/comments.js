@@ -20,16 +20,17 @@ Page({
 
     //获取长评论数据
     getLongComments:function(newsid){
-        var that = this;
+        var _this = this;
          wx.request({
             url: "https://news-at.zhihu.com/api/4/story/"+newsid+"/long-comments", 
+            method: 'GET',
             header: {
                 'Content-Type': 'application/json'
             },
             success: function(res) {
                 console.log(res.data);
                 console.log("res.data.comments.length->"+res.data.comments.length);
-                that.setData({
+                _this.setData({
                     longComments:res.data.comments,
                     longCommentCounts:res.data.comments.length
                 })
@@ -39,15 +40,16 @@ Page({
 
     //获取短评论数据
     getShortComments:function(newsid){
-        var that = this;
+        var _this = this;
          wx.request({
             url:"https://news-at.zhihu.com/api/4/story/"+newsid+"/short-comments",
+            method: 'GET',
             header: {
                 'Content-Type': 'application/json'
             },
             success: function(res) {
                 console.log(res.data);
-                that.setData({
+                _this.setData({
                      shortComments:res.data.comments,
                      shortCommentCounts:res.data.comments.length
                 })

@@ -4,11 +4,11 @@
 var app = getApp();
 
 //require引入文件
-var util = require("../../lib/util.js");
+var util = require("../../utils/util.js");
 
 //require引入api.js文件
-var api = require("../../lib/api.js");
-var dialog = require("../../lib/dialog.js");
+var CONFIG = require("../../utils/config.js");
+var dialog = require("../../utils/dialog.js");
 
 // 引入富文本解析自定义组件
 var WxParse = require('../../wxParse/wxParse.js');
@@ -35,16 +35,17 @@ Page({
     },
     loadExtraData:function(newsid){
 
-        console.log(api.news_extradata_url+newsid);
-        var that = this;
+        console.log(CONFIG.API_URL.NEWS_EXTRADATA_QUERY+newsid);
+        var _this = this;
          wx.request({
-            url: api.news_extradata_url+newsid, 
+            url: CONFIG.API_URL.NEWS_EXTRADATA_QUERY+newsid, 
+            method: 'GET',
             header: {
                 'Content-Type': 'application/json'
             },
             success: function(res) {
                 console.log(res.data);
-                that.setData({
+                _this.setData({
                     comments:res.data.comments,
                     popularity:res.data.popularity,
                     long_comments:res.data.long_comments,
@@ -57,10 +58,11 @@ Page({
         console.log(JSON.stringify(option.id));
         dialog.loading();
 
-        var that = this;
+        var _this = this;
         
         wx.request({
-            url: api.news_detail_url+option.id, 
+            url: CONFIG.API_URL.NEWS_DETAIL_QUERY+option.id, 
+            method: 'GET',
             header: {
                 'Content-Type': 'application/json'
             },
@@ -70,7 +72,7 @@ Page({
                 // //html解析
                 // var str = util.coder(res.data.body);
 
-                that.setData({
+                _this.setData({
                     newsid:res.data.id,
                      title:res.data.title,
                      imgsrc:res.data.image,
@@ -79,7 +81,7 @@ Page({
 
 
                 //加载新闻额外信息
-                that.loadExtraData(res.data.id);
+                _this.loadExtraData(res.data.id);
                 
             },
             complete:function(){

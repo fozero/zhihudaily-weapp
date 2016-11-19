@@ -8,8 +8,14 @@
 
         <!--专栏tab选项卡-->
         <scroll-view scroll-x="true" class="section_tabs">
-            <block wx:for="{{themes}}" wx:for-item="item">
-                <view id="{{item.id}}" bindtap="toGetThemesContent" class="section_tabs_item">{{item.name}}</view>
+            <block wx:for="{{themes}}" wx:for-index="index" wx:for-item="item">
+            <!--对比当前选中的主题id-->
+               <block  wx:if="{{themesid == item.id}}">
+                       <view id="{{item.id}}" bindtap="toGetThemesContent" class="section_tabs_item actived">{{item.name}}</view>
+               </block >
+                <block  wx:else> 
+                   <view id="{{item.id}}" bindtap="toGetThemesContent" class="section_tabs_item">{{item.name}}</view>
+                </block >
             </block>
         </scroll-view>
 

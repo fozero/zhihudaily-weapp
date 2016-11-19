@@ -1,10 +1,10 @@
 //获取应用实例
 var app = getApp();
 
-//require引入api.js文件
-var api = require("../../lib/api.js");
-var dialog = require("../../lib/dialog.js");
-var util = require("../../lib/util.js");
+//require引入config.js文件
+var CONFIG = require("../../utils/config.js");
+var dialog = require("../../utils/dialog.js");
+var util = require("../../utils/util.js");
 
 // 页面注册
 Page({
@@ -41,25 +41,29 @@ Page({
     },
     //获取最新日报数据
     getNewsList:function(){
-            var that = this
+            var _this = this
             wx.request({
-                url: api.news_latest_url, 
+                url: CONFIG.API_URL.NEWS_LATEST_QUERY, 
+                method: 'GET',
                 header: {
                     'Content-Type': 'application/json'
                 },
                 success: function(res) {
-                    console.log(res.data);
+                    console.log(res);//errMsg: "request:ok", data: Object, statusCode: 200
+                    if(res.statusCode == 200){
+                        console.log(res.data);
 
-                    //日期格式化 '19930701' -> 1993-07-01  
-                    var dateString = res.data.date;
-                    var pattern = /(\d{4})(\d{2})(\d{2})/;
-                    var formatedDate = dateString.replace(pattern, '$1-$2-$3');
+                        //日期格式化 '19930701' -> 1993-07-01  
+                        var dateString = res.data.date;
+                        var pattern = /(\d{4})(\d{2})(\d{2})/;
+                        var formatedDate = dateString.replace(pattern, '$1-$2-$3');
 
-                    that.setData({
-                        stories:res.data.stories,
-                        top_stories:res.data.top_stories,
-                        datetime:formatedDate
-                    })
+                        _this.setData({
+                            stories:res.data.stories,
+                            top_stories:res.data.top_stories,
+                            datetime:formatedDate
+                        })
+                    }
                 },
                 fail:function(){
                     setTimeout(function(){

@@ -2,8 +2,8 @@
 
 // section.js
 
-//require引入api.js文件
-var api = require("../../lib/api.js");
+//require引入config.js文件
+var CONFIG = require("../../utils/config.js");
 
 // 页面注册
 Page({
@@ -14,7 +14,8 @@ Page({
         themename:"",
         description:"",
         themeimage:"",
-        editors:""
+        editors:"",
+        themesid:""
     },
     onLoad:function(){
         this.getThemes();
@@ -23,18 +24,19 @@ Page({
 
     //主题日报列表
     getThemes:function(){
-        var that = this;
+        var _this = this;
          wx.request({
-            url: api.news_themes_url, 
+            url: CONFIG.API_URL.NEWS_THEMES_QUERY, 
+            method: 'GET',
             header: {
                 'Content-Type': 'application/json'
             },
             success: function(res) {
                 console.log("news_themes_url->"+JSON.stringify(res.data));
-                 that.setData({
+                 _this.setData({
                     themes:res.data.others
                 })
-                that.getThemesContent(res.data.others[0].id);
+                _this.getThemesContent(res.data.others[0].id);
             }
          })
     },
@@ -47,11 +49,12 @@ Page({
     },
 
     //新闻主题内容
-    getThemesContent:function(themeid){console.log("********************"+themeid);
-        console.log(api.news_themes_content_url+themeid);
-        var that = this;
+    getThemesContent:function(themeid){
+        console.log(CONFIG.API_URL.NEWS_THEMES_CONTETN_QUERY+themeid);
+        var _this = this;
          wx.request({
-            url: api.news_themes_content_url+themeid, 
+            url: CONFIG.API_URL.NEWS_THEMES_CONTETN_QUERY+themeid, 
+            method: 'GET',
             header: {
                 'Content-Type': 'application/json'
             },
@@ -59,12 +62,13 @@ Page({
                 console.log("news_themes_content_url->"+JSON.stringify(res.data));
                 console.log("res.data.name->"+res.data.name);
                 console.log("res.data.editors->"+res.data.editors[0].avatar);
-                 that.setData({
+                 _this.setData({
                     stories:res.data.stories,
                     themename:res.data.name,
                     description:res.data.description,
                     themeimage:res.data.image,
-                    editors:res.data.editors
+                    editors:res.data.editors,
+                    themesid:themeid //更新当前选中专栏id  用于在前台页面进行比对
                 })
 
                 //更新主题标题栏
