@@ -62,11 +62,11 @@ App({
 
 
 通过全局的getApp()函数，获取小程序实例
-
+``` 
 // other.js
 var appInstance = getApp()
 console.log(appInstance.globalData) // I am global data
-
+``` 
 注意：
 
 App() 必须在 app.js 中注册，且不能注册多个。
@@ -79,7 +79,7 @@ App() 必须在 app.js 中注册，且不能注册多个。
 
 
 - 通过Page() 函数用来注册页面
-
+``` 
 //index.js
 Page({
   data: {
@@ -116,7 +116,7 @@ Page({
     hi: 'MINA'
   }
 })
-
+``` 
 
 
 
@@ -127,7 +127,7 @@ Page({
 ## 常用API接口
 
 - wx.request https网络请求
-
+``` 
 wx.request({
   url: 'test.php', //仅为示例，并非真实的接口地址
   method:"GET",
@@ -142,43 +142,44 @@ wx.request({
     console.log(res.data)
   }
 })
-
+``` 
 
 - 本地缓存   
 
 通过key的形式添加缓存setStorage （异步接口）  
-
+``` 
 wx.setStorage({
   key:"key"
   data:"value"
 })
-
+``` 
 通过key的形式获取缓存getStorage  （异步接口）
-
+``` 
 wx.getStorage({
   key: 'key',
   success: function(res) {
       console.log(res.data)
   } 
 })
-
+``` 
 
 从本地缓存中异步移除指定 key
+``` 
 wx.removeStorage({
   key: 'key',
   success: function(res) {
     console.log(res.data)
   } 
 })
-
+``` 
 清理本地数据缓存
-
+``` 
 wx.clearStorage()
-
+``` 
 
 
 - 显示、隐藏消息提示框
-
+``` 
 wx.showToast({
   title: '加载中',
   icon: 'loading',
@@ -188,35 +189,35 @@ wx.showToast({
 setTimeout(function(){
   wx.hideToast()
 },2000)
-
+``` 
 
 
 
 - 动态设置当前页面的标题
-
+``` 
 wx.setNavigationBarTitle({
   title: '当前页面'
 })
-
+``` 
 
 
 - 导航 
 
 保留当前页面，跳转到应用内的某个页面
-
+``` 
 wx.navigateTo({
   url: 'test?id=1'
 })
-
+``` 
 关闭当前页面，跳转到应用内的某个页面
-
+``` 
 wx.redirectTo({
   url: 'test?id=1'
 })
-
+``` 
 
 - 获取用户信息，需要先调用 wx.login 接口
-
+``` 
 wx.getUserInfo({
   success: function(res) {
     var userInfo = res.userInfo
@@ -228,22 +229,22 @@ wx.getUserInfo({
     var country = userInfo.country
   }
 })
-
+``` 
 
 
 - 设备
 
 获取网络类型
-
+``` 
 wx.getNetworkType({
   success: function(res) {
     var networkType = res.networkType // 返回网络类型2g，3g，4g，wifi
   }
 })
-
+``` 
 
 获取系统信息（异步接口）
-
+``` 
 wx.getSystemInfo({
   success: function(res) {
     console.log(res.model)
@@ -254,16 +255,16 @@ wx.getSystemInfo({
     console.log(res.version)
   }
 })
-
+``` 
 拨打电话
-
+``` 
 wx.makePhoneCall({
   phoneNumber: '1340000' //仅为示例，并非真实的电话号码
 })
-
+``` 
 
 -获取当前的地理位置、速度
-
+``` 
 wx.getLocation({
   type: 'wgs84',
   success: function(res) {
@@ -273,5 +274,5 @@ wx.getLocation({
     var accuracy = res.accuracy
   }
 })
-
+``` 
 
