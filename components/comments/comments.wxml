@@ -9,7 +9,7 @@
             <view>
                 <view class="fl_left">{{author}}</view>
                 <view class="fl_right">
-                    <image src="../../images/ico_like.png" style="width:22px;height:22px;"></image>
+                    <image src="../../images/ic_answer_like_normal.png" style="width:22px;height:22px;"></image>
                     {{likes}}
                 </view>
                 <view class="clearfix"></view>

@@ -15,7 +15,7 @@ Page({
         description:"",
         themeimage:"",
         editors:"",
-        themesid:""
+        curNav:""
     },
     onLoad:function(){
         this.getThemes();
@@ -68,7 +68,7 @@ Page({
                     description:res.data.description,
                     themeimage:res.data.image,
                     editors:res.data.editors,
-                    themesid:themeid //更新当前选中专栏id  用于在前台页面进行比对
+                    curNav:themeid //更新当前选中专栏id  用于在前台页面进行比对
                 })
 
                 //更新主题标题栏

@@ -16,6 +16,9 @@ https://mp.weixin.qq.com/debug/wxadoc/dev/?t=20161107
 - 项目预览体验
 
 
+![zhihudaily-weapp.gif](http://upload-images.jianshu.io/upload_images/1410006-3d284988d34cb4fd.gif?imageMogr2/auto-orient/strip)
+
+
 
 # 必须掌握的几个知识点
 

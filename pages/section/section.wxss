@@ -14,8 +14,8 @@
 }
 
 .section_tabs .actived{
-   color: #42bd56;
-    border-bottom: #42bd56 solid 2px;
+   color: #4abdcc;
+    border-bottom: #4abdcc solid 2px;
 }
 
 
