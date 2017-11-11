@@ -1,5 +1,3 @@
-
-
 // section.js
 
 //require引入config.js文件
@@ -7,7 +5,6 @@ var CONFIG = require("../../utils/config.js");
 
 // 页面注册
 Page({
-
     data:{
         themes:"",
         stories:"",
@@ -21,7 +18,6 @@ Page({
         this.getThemes();
     },
 
-
     //主题日报列表
     getThemes:function(){
         var _this = this;
@@ -32,7 +28,7 @@ Page({
                 'Content-Type': 'application/json'
             },
             success: function(res) {
-                console.log("news_themes_url->"+JSON.stringify(res.data));
+              console.log("获取主题日报列表:"+JSON.stringify(res));
                  _this.setData({
                     themes:res.data.others
                 })
@@ -48,9 +44,8 @@ Page({
         this.getThemesContent(themeid);
     },
 
-    //新闻主题内容
+    //日报专栏内容
     getThemesContent:function(themeid){
-        console.log(CONFIG.API_URL.NEWS_THEMES_CONTETN_QUERY+themeid);
         var _this = this;
          wx.request({
             url: CONFIG.API_URL.NEWS_THEMES_CONTETN_QUERY+themeid, 
@@ -59,9 +54,7 @@ Page({
                 'Content-Type': 'application/json'
             },
             success: function(res) {
-                console.log("news_themes_content_url->"+JSON.stringify(res.data));
-                console.log("res.data.name->"+res.data.name);
-                console.log("res.data.editors->"+res.data.editors[0].avatar);
+              console.log("获取日报专栏内容："+JSON.stringify(res));
                  _this.setData({
                     stories:res.data.stories,
                     themename:res.data.name,
@@ -70,7 +63,6 @@ Page({
                     editors:res.data.editors,
                     curNav:themeid //更新当前选中专栏id  用于在前台页面进行比对
                 })
-
                 //更新主题标题栏
                 wx.setNavigationBarTitle({
                     title: res.data.name,
@@ -83,20 +75,12 @@ Page({
                 })
             }
          })
-
-
     },
      //知乎日报详情页跳转
     dailyDetail:function(e){
-         console.log("**************"+JSON.stringify(e));
-         console.log("**************"+e.currentTarget.id);
          wx.navigateTo({
            url: '../detail/detail?id='+e.currentTarget.id
          })
     }
-
-
-
-
 
 })

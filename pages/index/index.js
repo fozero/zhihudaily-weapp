@@ -21,9 +21,6 @@ Page({
     },
     //知乎日报详情页跳转
     dailyDetail:function(e){
-
-         console.log("**************"+JSON.stringify(e));
-         console.log("**************"+e.currentTarget.id);
         
          wx.navigateTo({
            url: '../detail/detail?id='+e.currentTarget.id,
@@ -49,10 +46,8 @@ Page({
                     'Content-Type': 'application/json'
                 },
                 success: function(res) {
-                    console.log(res);//errMsg: "request:ok", data: Object, statusCode: 200
+                  console.log("获取最新日报数据:" + JSON.stringify(res));//errMsg: "request:ok", data: Object, statusCode: 200
                     if(res.statusCode == 200){
-                        console.log(res.data);
-
                         //日期格式化 '19930701' -> 1993-07-01  
                         var dateString = res.data.date;
                         var pattern = /(\d{4})(\d{2})(\d{2})/;

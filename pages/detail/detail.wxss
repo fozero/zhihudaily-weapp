@@ -1,10 +1,6 @@
 /*引入富文本解析自定义组件*/
 @import "../../wxParse/wxParse.wxss";
-
-
 .wxParse-script{display: none;}
-
-
 
 article,
 aside,

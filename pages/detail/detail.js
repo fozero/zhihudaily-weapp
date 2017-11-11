@@ -28,14 +28,11 @@ Page({
     },
     //评论页面跳转
     showComments:function(e){
-        console.log(e.currentTarget.id);
         wx.navigateTo({
            url: '../comments/comments?id='+e.currentTarget.id
          })
     },
     loadExtraData:function(newsid){
-
-        console.log(CONFIG.API_URL.NEWS_EXTRADATA_QUERY+newsid);
         var _this = this;
          wx.request({
             url: CONFIG.API_URL.NEWS_EXTRADATA_QUERY+newsid, 
@@ -44,7 +41,7 @@ Page({
                 'Content-Type': 'application/json'
             },
             success: function(res) {
-                console.log(res.data);
+              console.log(" 获取文章评论:" + JSON.stringify(res));
                 _this.setData({
                     comments:res.data.comments,
                     popularity:res.data.popularity,
@@ -54,12 +51,10 @@ Page({
             }
          })
     },
+    // 加载文章内容
     onLoad: function(option){
-        console.log(JSON.stringify(option.id));
         dialog.loading();
-
         var _this = this;
-        
         wx.request({
             url: CONFIG.API_URL.NEWS_DETAIL_QUERY+option.id, 
             method: 'GET',
@@ -67,26 +62,19 @@ Page({
                 'Content-Type': 'application/json'
             },
             success: function(res) {
-                console.log(res.data)
-                console.log(res.data.body)
-                // //html解析
-                // var str = util.coder(res.data.body);
+              console.log("加载文章内容:" + JSON.stringify(res));
 
-
+                //富文本解析
                 var article = res.data.body;
                 WxParse.wxParse('article', 'html', article, _this,0);
-
-            // wxParseData: WxParse('html', res.data.body)//使用WxParse组件解析html  markdow解析将html替换成md
                 _this.setData({
                     newsid:res.data.id,
                      title:res.data.title,
                      imgsrc:res.data.image
                 })
 
-
-                //加载新闻额外信息
+                //加载评论信息
                 _this.loadExtraData(res.data.id);
-                
             },
             complete:function(){
                 setTimeout(function(){
