@@ -9,7 +9,8 @@
     "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#4abdcc",
     "navigationBarTitleText": "知乎日报",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle":"white",
+    "backgroundColor":"#f6f6f6"
   }, "tabBar": {
     "color": "#b0b0b0",
     "selectedColor": "#4abdcc",

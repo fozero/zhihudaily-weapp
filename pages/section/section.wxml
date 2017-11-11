@@ -15,7 +15,7 @@
 
         <!--主题图片-->
         <view>
-           <image style="height:180px;" src="{{themeimage}}"/>
+           <image style="width:100%;" src="{{themeimage}}" mode="widthFix"/>
             <view style="position:absolute;top:120px;color:#fff;font-size:18px;padding:5px;">{{description}}</view>
         </view>
         <!--编辑-->
@@ -26,7 +26,7 @@
             </block>
         </view>
         <!--主题内容列表-->
-        <view>
+        <view  style='padding-bottom:1px;'>
             <block wx:for="{{stories}}" wx:for-item="item">
                 <template is="news_item" data="{{id:item.id,title:item.title,images:item.images[0]}}"/>
             </block>
