@@ -95,7 +95,7 @@ function strGreeceDiscode(str){
     str = str.replace(/&thetasym;/g, 'ϑ');
     str = str.replace(/&upsih;/g, 'ϒ');
     str = str.replace(/&piv;/g, 'ϖ');
-
+    str = str.replace(/&middot;/g, '·');
     return str;
 }
 
@@ -104,10 +104,14 @@ function strGreeceDiscode(str){
 function strcharacterDiscode(str){
     // 加入常用解析
     str = str.replace(/&nbsp;/g, ' ');
-    str = str.replace(/&quot;/g, '"');
+    str = str.replace(/&quot;/g, "'");
     str = str.replace(/&amp;/g, '&');
+    // str = str.replace(/&lt;/g, '‹');
+    // str = str.replace(/&gt;/g, '›');
+
     str = str.replace(/&lt;/g, '<');
     str = str.replace(/&gt;/g, '>');
+    str = str.replace(/&#8226;/g, '•');
 
     return str;
 }
@@ -167,13 +171,14 @@ function strOtherDiscode(str){
     str = str.replace(/&hearts;/g, '♥');
 
     str = str.replace(/&diams;/g, '♦');
-
+    str = str.replace(/&#39;/g, '\'');
     return str;
 }
 
 function strMoreDiscode(str){
     str = str.replace(/\r\n/g,"");  
-    str = str.replace(/\n\n/g,"\n");
+    str = str.replace(/\n/g,"");
+
     str = str.replace(/code/g,"wxxxcode-style");
     return str;
 }
@@ -186,7 +191,17 @@ function strDiscode(str){
     str = strMoreDiscode(str);
     return str;
 }
+function urlToHttpUrl(url,rep){
+    
+    var patt1 = new RegExp("^//");
+    var result = patt1.test(url);
+    if(result){
+        url = rep+":"+url;
+    }
+    return  url;
+}
 
 module.exports = {
-    strDiscode:strDiscode
+    strDiscode:strDiscode,
+    urlToHttpUrl:urlToHttpUrl
 }

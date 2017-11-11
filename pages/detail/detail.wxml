@@ -5,18 +5,34 @@
 
 <view class="container">
    
-    <view style="height:240px;position:relative;">
-        <image src="{{imgsrc}}"></image>
+    <!-- <view style="position:relative;">
+        <image src="{{imgsrc}}" mode="aspectFill" style='width:100%;'></image>
         <view style="position:absolute;top:158px;color:#fff;font-size:20px;padding:10px;">{{title}}</view>
-    </view>
+    </view> -->
 
      <!--知乎内容html解析-->
-    <view class="wxParse">
-        <template is="wxParse" data="{{wxParseData}}"/>
+    <!-- <view class="wxParse">
+        
+    </view> -->
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+
+
+<view style="background-color:#fff;position:fixed;right:10px;bottom:30px;padding:10px;color:#333;box-shadow:0px 0px 2px 1px #B4CDCD;font-size:14px;line-height:40px;">
+        <view id="{{newsid}}" style='text-align:center;' bindtap="doLike">
+            {{popularity}}赞
+        </view>
+        <view style='height:1px;background:#ccc;width:100%;'></view>
+        <view id="{{newsid}}" style='text-align:center;' bindtap="showComments">
+            {{comments}}评论
+        </view>
     </view>
 
+
+
+
+
     <!--额外信息-->
-    <view style="background-color:#4abdcc;position:fixed;bottom:0;width:100%;padding:5px;height:42px;color:#fff;display:flex;flex-direction:row-reverse;">
+    <!-- <view style="background-color:#4abdcc;position:fixed;bottom:0;width:100%;padding:5px;height:42px;color:#fff;display:flex;flex-direction:row-reverse;">
         <view id="{{newsid}}" class="" style="" bindtap="doLike" style="margin-right: 20px;height:42px;line-height:42px;">
             <image src="../../images/ico_like.png" style="width:22px;height:22px;"></image>
            <text>{{popularity}}</text>
@@ -25,6 +41,6 @@
             <image src="../../images/ico_answer.png" style="width:22px;height:22px;"></image>
             <text>{{comments}}</text>
         </view>
-    </view>
+    </view> -->
 
 </view>

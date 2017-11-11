@@ -12,10 +12,18 @@
 
 .wxParse{
     margin: 0 5px;
-    font-family:Courier, Calibri,"宋体";
+    font-family: Helvetica,sans-serif;
+    font-size: 28rpx;
+    color: #666;
+    line-height: 1.8;
 }
 view{
     word-break:break-all; overflow:auto;
+}
+.wxParse-inline{
+    display: inline;
+    margin: 0;
+    padding: 0;
 }
 /*//标题 */
 .wxParse-div{margin: 0;padding: 0;}
@@ -25,6 +33,37 @@ view{
 .wxParse-h4{ margin: 1.12em 0}
 .wxParse-h5 { font-size:.83em; margin: 1.5em 0 }
 .wxParse-h6{ font-size:.75em; margin: 1.67em 0 }
+
+.wxParse-h1 {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: .9em;
+}
+.wxParse-h2 {
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: .34em;
+}
+.wxParse-h3 {
+  font-weight: 400;
+  font-size: 15px;
+  margin-bottom: .34em;
+}
+.wxParse-h4 {
+  font-weight: 400;
+  font-size: 14px;
+  margin-bottom: .24em;
+}
+.wxParse-h5 {
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: .14em;
+}
+.wxParse-h6 {
+  font-weight: 400;
+  font-size: 12px;
+  margin-bottom: .04em;
+}
 
 .wxParse-h1, .wxParse-h2, .wxParse-h3, .wxParse-h4, .wxParse-h5, .wxParse-h6, .wxParse-b, .wxParse-strong  { font-weight: bolder }
 
@@ -38,7 +77,7 @@ view{
 .wxParse-s,.wxParse-strike,.wxParse-del{text-decoration:line-through}
 /*wxparse-自定义个性化的css样式*/
 /*增加video的css样式*/
-
+.wxParse-strong,.wxParse-s{display: inline}
 .wxParse-a{
     color: deepskyblue;
     word-break:break-all;
@@ -55,11 +94,8 @@ view{
 }
 
 .wxParse-img{
-    padding: 2px;
-    background-color: #efefef;
-    margin: 3px;
+    /*background-color: #efefef;*/
     overflow: hidden;
-    text-align: center;
 }
 
 .wxParse-blockquote {
@@ -71,23 +107,9 @@ view{
 }
 
 .wxParse-code,.wxParse-wxxxcode-style{
-    text-indent:0;
-    border-color:#000;
-    border-style:dashed;
-    border-width:1px;
-    display:block;
-    font-size:12px;
-    font-family:Courier, Calibri,"宋体";
-    margin:10px 0 0 0;
-    padding:10px 0 10px 5px;
-    border-radius:5px;
+    display: inline;
     background:#f5f5f5;
-    color:#000;
-    overflow: hidden;
 }
-
-
-
 .wxParse-ul{
     margin: 20rpx 10rpx;
 }
@@ -107,7 +129,6 @@ view{
     display: inline-flex;
     width: 5px;
     height: 5px;
-    /*border-radius: 50%;*/
     background-color: #333;
     margin-right: 5px;
 }
@@ -129,4 +150,57 @@ view{
     margin-right: 5px;
 }
 
+/*.wxParse-table{
+    width: 100%;
+    height: 400px;
+}
+.wxParse-thead,.wxParse-tfoot,.wxParse-tr{
+    display: flex;
+    flex-direction: row;
+}
+.wxParse-th,.wxParse-td{
+    display: flex;
+    width: 580px;
+    overflow: auto;
+}*/
 
+.wxParse-u {
+  text-decoration: underline;
+}
+.wxParse-hide{
+    display: none;
+}
+.WxEmojiView{
+    align-items: center;
+}
+.wxEmoji{
+    width: 16px;
+    height:16px;
+}
+.wxParse-tr{
+	display: flex;
+	border-right:1px solid #e0e0e0;
+	border-bottom:1px solid #e0e0e0;
+	border-top:1px solid #e0e0e0;
+}
+.wxParse-th,
+.wxParse-td{
+	flex:1;
+	padding:5px;
+	font-size:28rpx;
+	border-left:1px solid #e0e0e0;
+	word-break: break-all;
+}
+.wxParse-td:last{
+	border-top:1px solid #e0e0e0;
+}
+.wxParse-th{
+	background:#f0f0f0;
+	border-top:1px solid #e0e0e0;
+}
+.wxParse-del{
+    display: inline;
+}
+.wxParse-figure {
+  overflow: hidden;
+}

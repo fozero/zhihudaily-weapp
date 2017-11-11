@@ -20,7 +20,7 @@ Page({
         newsid:"",
         title:"",
         imgsrc:"",
-        wxParseData:"",
+        article:"",
         comments:0,
         popularity:0,
         long_comments:0,
@@ -68,15 +68,19 @@ Page({
             },
             success: function(res) {
                 console.log(res.data)
-
+                console.log(res.data.body)
                 // //html解析
                 // var str = util.coder(res.data.body);
 
+
+                var article = res.data.body;
+                WxParse.wxParse('article', 'html', article, _this,0);
+
+            // wxParseData: WxParse('html', res.data.body)//使用WxParse组件解析html  markdow解析将html替换成md
                 _this.setData({
                     newsid:res.data.id,
                      title:res.data.title,
-                     imgsrc:res.data.image,
-                     wxParseData:WxParse('html',res.data.body)//使用WxParse组件解析html  markdow解析将html替换成md
+                     imgsrc:res.data.image
                 })
 
 
