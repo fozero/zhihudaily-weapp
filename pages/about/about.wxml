@@ -1,0 +1,13 @@
+<!--pages/about/about.wxml-->
+<view class='about'>
+<view style='text-align:center;'>
+<image style='width:120px;' src='../../images/logo.png' mode='widthFix'></image>
+</view>
+    <view>软件版本：v1.0.0</view>
+    <view>口袋趣读 ，让你每天都能Get到新知识 ~</view>
+    <view class='contact'>
+      <view>Developer ：fozero</view>
+      <view>Email：fozero@126.com</view>
+      <view>Github： https://github.com/fozero</view>
+    </view>
+</view>

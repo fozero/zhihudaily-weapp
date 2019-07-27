@@ -3,29 +3,36 @@
       "pages/index/index",
       "pages/detail/detail",
       "pages/comments/comments",
-      "pages/section/section"
+      "pages/section/section",
+      "pages/about/about"
   ],
   "window":{
     "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#4abdcc",
-    "navigationBarTitleText": "知乎日报",
+    "navigationBarTitleText": "口袋趣读",
     "navigationBarTextStyle":"white",
     "backgroundColor":"#f6f6f6"
   }, "tabBar": {
     "color": "#b0b0b0",
     "selectedColor": "#4abdcc",
-    "borderStyle": "white",
+    "borderStyle": "black",
     "backgroundColor": "#fff",
     "list": [{
       "pagePath": "pages/index/index",
-      "iconPath": "images/index_normal.png",
-      "selectedIconPath": "images/index_pressed.png",
+      "iconPath": "images/home.png",
+      "selectedIconPath": "images/home_selected.png",
       "text": "最新"
     }, {
       "pagePath": "pages/section/section",
-      "iconPath": "images/section_normal.png",
-      "selectedIconPath": "images/section_pressed.png",
+      "iconPath": "images/zhuti.png",
+      "selectedIconPath": "images/zhuti_selected.png",
       "text": "专栏"
+    },
+    {
+      "pagePath": "pages/about/about",
+      "iconPath": "images/about.png",
+      "selectedIconPath": "images/about_selected.png",
+      "text": "关于"
     }]
   },
   "networkTimeout": {

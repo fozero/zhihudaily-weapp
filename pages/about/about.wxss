@@ -1,0 +1,4 @@
+/* pages/about/about.wxss */
+
+.about{background: #fff;font-size: 14px;line-height: 28px;padding: 20px}
+.contact{background: #f8f8f9;border-left: 4px solid #dddee1;padding-left: 10px;font-size: 12px;}
